@@ -121,6 +121,16 @@ module tt_um_yannickreiss_lights_out (
         field8 <= uio_in[1];
         field9 <= !clk;
       end
+    end else begin
+      field1 <= 1'b0;
+      field2 <= 1'b0;
+      field3 <= 1'b0;
+      field4 <= 1'b0;
+      field5 <= 1'b0;
+      field6 <= 1'b0;
+      field7 <= 1'b0;
+      field8 <= 1'b0;
+      field9 <= 1'b0;
     end
   end
 endmodule
