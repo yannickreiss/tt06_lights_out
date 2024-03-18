@@ -17,7 +17,7 @@ module tt_um_yannickreiss_lights_out (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_oe  = 8'b00000010;
+  assign uio_oe = 8'b00000010;
 
   // Matrix (input)
   wire [8:0] buttons = ui_in[7:0] & uio_in[0];
@@ -52,75 +52,74 @@ module tt_um_yannickreiss_lights_out (
       if (rst_n == 1'b1) begin
 
         // Do act normal
-        case ( buttons )
-            9'b000000001: begin
-                field1 <= !field1;
-                field2 <= !field2;
-                field4 <= !field4;
-            end
-            9'b000000010: begin
-                field1 <= !field1;
-                field2 <= !field2;
-                field3 <= !field3;
-                field5 <= !field5;
-            end
-            9'b000000100: begin
-                field2 <= !field2;
-                field3 <= !field3;
-                field6 <= !field6;
-            end
-            9'b000001000: begin
-                field1 <= !field1;
-                field4 <= !field4;
-                field5 <= !field5;
-                field7 <= !field7;
-            end
-            9'b000010000: begin
-                field2 <= !field2;
-                field4 <= !field4;
-                field5 <= !field5;
-                field6 <= !field6;
-                field8 <= !field8;
-            end
-            9'b000100000: begin
-                field3 <= !field3;
-                field5 <= !field5;
-                field6 <= !field6;
-                field9 <= !field9;
-            end
-            9'b001000000: begin
-                field4 <= !field4;
-                field7 <= !field7;
-                field8 <= !field8;
-            end
-            9'b010000000: begin
-                field5 <= !field5;
-                field7 <= !field7;
-                field8 <= !field8;
-                field9 <= !field9;
-            end
-            9'b100000000: begin
-                field6 <= !field6;
-                field8 <= !field8;
-                field9 <= !field9;
-            end
-            default: begin
+        case (buttons)
+          9'b000000001: begin
+            field1 <= !field1;
+            field2 <= !field2;
+            field4 <= !field4;
+          end
+          9'b000000010: begin
+            field1 <= !field1;
+            field2 <= !field2;
+            field3 <= !field3;
+            field5 <= !field5;
+          end
+          9'b000000100: begin
+            field2 <= !field2;
+            field3 <= !field3;
+            field6 <= !field6;
+          end
+          9'b000001000: begin
+            field1 <= !field1;
+            field4 <= !field4;
+            field5 <= !field5;
+            field7 <= !field7;
+          end
+          9'b000010000: begin
+            field2 <= !field2;
+            field4 <= !field4;
+            field5 <= !field5;
+            field6 <= !field6;
+            field8 <= !field8;
+          end
+          9'b000100000: begin
+            field3 <= !field3;
+            field5 <= !field5;
+            field6 <= !field6;
+            field9 <= !field9;
+          end
+          9'b001000000: begin
+            field4 <= !field4;
+            field7 <= !field7;
+            field8 <= !field8;
+          end
+          9'b010000000: begin
+            field5 <= !field5;
+            field7 <= !field7;
+            field8 <= !field8;
+            field9 <= !field9;
+          end
+          9'b100000000: begin
+            field6 <= !field6;
+            field8 <= !field8;
+            field9 <= !field9;
+          end
+          default: begin
 
-            end
+          end
         endcase
-      end
-      else begin
+      end else begin
 
         // set new matrix in a pseudo random way
-        field1 <= clk & field6;
+        field1 <= clk;
         field2 <= !clk;
         field3 <= clk;
-        field4 <= !field4;
-        field5 <= !field5 ^ clk;
+        field4 <= !clk;
+        field5 <= clk;
         field6 <= clk;
         field7 <= !clk;
-        field8 <= field2;
-        field9 <= !field7;
+        field8 <= clk;
+        field9 <= !clk;
       end
     end
   end
