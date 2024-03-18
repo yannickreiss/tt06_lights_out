@@ -20,24 +20,7 @@ module tt_um_yannickreiss_lights_out (
   assign uio_oe  = 8'b00000010;
 
   // Matrix (input)
-  wire in1;
-  wire in2;
-  wire in3;
-  wire in4;
-  wire in5;
-  wire in6;
-  wire in7;
-  wire in8;
-  wire in9;
-  assign in1 = ui_in[0];
-  assign in2 = ui_in[1];
-  assign in3 = ui_in[2];
-  assign in4 = ui_in[3];
-  assign in5 = ui_in[4];
-  assign in6 = ui_in[5];
-  assign in7 = ui_in[6];
-  assign in8 = ui_in[7];
-  assign in9 = uio_in[0];
+  wire [8:0] buttons = ui_in[7:0] & uio_in[0];
 
   // Matrix (current field)
   reg field1;
@@ -69,16 +52,62 @@ module tt_um_yannickreiss_lights_out (
       if (rst_n == 1'b1) begin
 
         // Do act normal
-        field1 <= 1'b0;
-        field2 <= 1'b0;
-        field3 <= 1'b0;
-        field4 <= 1'b0;
-        field5 <= 1'b0;
-        field6 <= 1'b0;
-        field7 <= 1'b0;
-        field8 <= 1'b0;
-        field9 <= 1'b0;
+        case ( buttons )
+            9'b000000001: begin
+                field1 = !field1;
+                field2 = !field2;
+                field4 = !field4;
+            end
+            9'b000000010: begin
+                field1 = !field1;
+                field2 = !field2;
+                field3 = !field3;
+                field5 = !field5;
+            end
+            9'b000000100: begin
+                field2 = !field2;
+                field3 = !field3;
+                field6 = !field6;
+            end
+            9'b000001000: begin
+                field1 = !field1;
+                field4 = !field4;
+                field5 = !field5;
+                field7 = !field7;
+            end
+            9'b000010000: begin
+                field2 = !field2;
+                field4 = !field4;
+                field5 = !field5;
+                field6 = !field6;
+                field8 = !field8;
+            end
+            9'b000100000: begin
+                field3 = !field3;
+                field5 = !field5;
+                field6 = !field6;
+                field9 = !field9;
+            end
+            9'b001000000: begin
+                field4 = !field4;
+                field7 = !field7;
+                field8 = !field8;
+            end
+            9'b010000000: begin
+                field5 = !field5;
+                field7 = !field7;
+                field8 = !field8;
+                field9 = !field9;
+            end
+            9'b100000000: begin
+                field6 = !field6;
+                field8 = !field8;
+                field9 = !field9;
+            end
+            default: begin
 
+            end
+        endcase
       end
       else begin
 
