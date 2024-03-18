@@ -54,55 +54,55 @@ module tt_um_yannickreiss_lights_out (
         // Do act normal
         case ( buttons )
             9'b000000001: begin
-                field1 = !field1;
-                field2 = !field2;
-                field4 = !field4;
+                field1 <= !field1;
+                field2 <= !field2;
+                field4 <= !field4;
             end
             9'b000000010: begin
-                field1 = !field1;
-                field2 = !field2;
-                field3 = !field3;
-                field5 = !field5;
+                field1 <= !field1;
+                field2 <= !field2;
+                field3 <= !field3;
+                field5 <= !field5;
             end
             9'b000000100: begin
-                field2 = !field2;
-                field3 = !field3;
-                field6 = !field6;
+                field2 <= !field2;
+                field3 <= !field3;
+                field6 <= !field6;
             end
             9'b000001000: begin
-                field1 = !field1;
-                field4 = !field4;
-                field5 = !field5;
-                field7 = !field7;
+                field1 <= !field1;
+                field4 <= !field4;
+                field5 <= !field5;
+                field7 <= !field7;
             end
             9'b000010000: begin
-                field2 = !field2;
-                field4 = !field4;
-                field5 = !field5;
-                field6 = !field6;
-                field8 = !field8;
+                field2 <= !field2;
+                field4 <= !field4;
+                field5 <= !field5;
+                field6 <= !field6;
+                field8 <= !field8;
             end
             9'b000100000: begin
-                field3 = !field3;
-                field5 = !field5;
-                field6 = !field6;
-                field9 = !field9;
+                field3 <= !field3;
+                field5 <= !field5;
+                field6 <= !field6;
+                field9 <= !field9;
             end
             9'b001000000: begin
-                field4 = !field4;
-                field7 = !field7;
-                field8 = !field8;
+                field4 <= !field4;
+                field7 <= !field7;
+                field8 <= !field8;
             end
             9'b010000000: begin
-                field5 = !field5;
-                field7 = !field7;
-                field8 = !field8;
-                field9 = !field9;
+                field5 <= !field5;
+                field7 <= !field7;
+                field8 <= !field8;
+                field9 <= !field9;
             end
             9'b100000000: begin
-                field6 = !field6;
-                field8 = !field8;
-                field9 = !field9;
+                field6 <= !field6;
+                field8 <= !field8;
+                field9 <= !field9;
             end
             default: begin
 
