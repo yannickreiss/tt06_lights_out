@@ -9,12 +9,14 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Takes input from buttons and updates a led matrix.
+The current state of the game is stored internally using registers.
 
 ## How to test
 
-Explain how to use your project
+Connect the chip to 9 buttons and 9 LEDs.
+Press the buttons and try to deactivate all of the LEDs.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+clock, 9 LEDs, 9 buttons
