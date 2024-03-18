@@ -61,6 +61,9 @@ module tt_um_yannickreiss_lights_out (
   assign uo_out[7] = field8;
   assign uio_out[0] = field9;
 
+  // uio_out map to zero
+  assign uio_out[7:1] = 7'b0;
+
   always @(posedge clk) begin
     if (ena == 1'b1) begin
       if (rst_n == 1'b1) begin
