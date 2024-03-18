@@ -20,7 +20,7 @@ module tt_um_yannickreiss_lights_out (
   assign uio_oe = 8'b00000010;
 
   // Matrix (input)
-  wire [8:0] buttons = ui_in[7:0] & uio_in[0];
+  wire [8:0] buttons = {ui_in[7:0], uio_in[0]};
 
   // Matrix (current field)
   reg field1;
@@ -112,13 +112,13 @@ module tt_um_yannickreiss_lights_out (
 
         // set new matrix in a pseudo random way
         field1 <= clk;
-        field2 <= !clk;
-        field3 <= clk;
-        field4 <= !clk;
-        field5 <= clk;
-        field6 <= clk;
-        field7 <= !clk;
-        field8 <= clk;
+        field2 <= uio_in[7];
+        field3 <= uio_in[6];
+        field4 <= uio_in[5];
+        field5 <= uio_in[4];
+        field6 <= uio_in[3];
+        field7 <= uio_in[2];
+        field8 <= uio_in[1];
         field9 <= !clk;
       end
     end
