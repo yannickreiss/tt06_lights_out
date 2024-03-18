@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2024 Yannick Reiß
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -69,6 +69,15 @@ module tt_um_yannickreiss_lights_out (
       if (rst_n == 1'b1) begin
 
         // Do act normal
+        field1 <= 1'b0;
+        field2 <= 1'b0;
+        field3 <= 1'b0;
+        field4 <= 1'b0;
+        field5 <= 1'b0;
+        field6 <= 1'b0;
+        field7 <= 1'b0;
+        field8 <= 1'b0;
+        field9 <= 1'b0;
 
       end
       else begin
@@ -82,6 +91,7 @@ module tt_um_yannickreiss_lights_out (
         field6 <= 1'b0;
         field7 <= 1'b0;
         field8 <= 1'b0;
+        field9 <= 1'b0;
       end
     end
   end
