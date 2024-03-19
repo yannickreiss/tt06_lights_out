@@ -112,13 +112,13 @@ module tt_um_yannickreiss_lights_out (
 
         // set new matrix in a pseudo random way
         field1 <= clk;
-        field2 <= uio_in[7];
-        field3 <= uio_in[6];
-        field4 <= uio_in[5];
-        field5 <= uio_in[4];
-        field6 <= uio_in[3];
-        field7 <= uio_in[2];
-        field8 <= uio_in[1];
+        field2 <= clk ^ uio_in[7];
+        field3 <= !clk ^ uio_in[6];
+        field4 <= clk ^ uio_in[5];
+        field5 <= !clk ^ uio_in[4];
+        field6 <= clk ^ uio_in[3];
+        field7 <= !clk ^ uio_in[2];
+        field8 <= clk ^ uio_in[1];
         field9 <= !clk;
       end
     end else begin
